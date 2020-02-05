@@ -1,6 +1,5 @@
 package br.com.dbserver.selenium_jupiter.verificationPoints;
 
-import org.apache.commons.lang3.NotImplementedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -32,7 +31,7 @@ public class TestCase01VerificationPoints {
 			Report.log(Status.PASS, "A quantidade esta correta.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "A quantidade não esta correta! "
-					              + "; Quantitade esperada: "+ qtd
+					              + "  Quantitade esperada: "+ qtd
 					              + "; Quantitade encontrada: "+qtdActual, this.driver);
 		}		
 		ElementsTools.unHighlightElement(this.driver, element);
@@ -46,7 +45,7 @@ public class TestCase01VerificationPoints {
 			Report.log(Status.PASS, "O preço esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O preço não esta correto."
-								+ "; O preço esperado: "+priceActual
+								+ "  O preço esperado: "+priceActual
 		                        + "; O preço encontrado: "+productUnitPrice, this.driver);
 		}
 		ElementsTools.unHighlightElement(this.driver, element);
@@ -60,7 +59,7 @@ public class TestCase01VerificationPoints {
 			Report.log(Status.PASS, "O produto esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O nome do produto não esta correto."
-								+ "; O nome do produto esperado: "+productName
+								+ "  O nome do produto esperado: "+productName
 								+ "; O nome do produto encontrado: "+nameActual, this.driver);
 		}
 		ElementsTools.unHighlightElement(this.driver, element);
@@ -74,7 +73,7 @@ public class TestCase01VerificationPoints {
 			Report.log(Status.PASS, "A soma dos itens esta correta.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "A soma dos itens não esta correta."
-								+ "; A soma dos itens esperada: "+productTotalPrice
+								+ "  A soma dos itens esperada: "+productTotalPrice
 								+ "; A soma dos itens encontrada: "+priceTotalActual, this.driver);
 		}
 		ElementsTools.unHighlightElement(this.driver, element);
@@ -89,7 +88,7 @@ public class TestCase01VerificationPoints {
 			Report.log(Status.PASS, "O telefone esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O telefone não esta correto "
-								+ "; O telefone esperado: "+mobileExpected
+								+ "  O telefone esperado: "+mobileExpected
 								+ "; O telefone encontrado: "+mobileActual, this.driver);
 		}	
 		ElementsTools.unHighlightElement(driver, element);
@@ -104,7 +103,7 @@ public class TestCase01VerificationPoints {
 			Report.log(Status.PASS, "O país esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O país não esta correto."
-								+ "; O país esperado: "+countryExpected
+								+ "  O país esperado: "+countryExpected
 								+ "; O país encontrado: "+countryActual, this.driver);
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);
@@ -116,11 +115,11 @@ public class TestCase01VerificationPoints {
 		String addressExpected   = customer.getCity()+", "+customer.getState() +" "+customer.getPostalCode();
 		ElementsTools.highlightElement(this.driver, element);		
 		if (addressExpected.equalsIgnoreCase(addressActual)) {
-			Report.log(Status.PASS, "O endereço esta correto.", this.driver);
+			Report.log(Status.PASS, "A localidade esta correta.", this.driver);
 		}else {
-			Report.log(Status.FAIL, "O endereço não esta correto."
-								+ "; O endereço esperado: "+addressExpected
-								+ "; O endereço encontrado: "+addressActual, this.driver);
+			Report.log(Status.FAIL, "A localidade não esta correta."
+								+ "  A localidade esperada: "+addressExpected
+								+ "; A localidade encontrada: "+addressActual, this.driver);
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);		
 	}
@@ -134,7 +133,7 @@ public class TestCase01VerificationPoints {
 			Report.log(Status.PASS, "O endereço esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O endereço não esta correto."
-								+ "; O endereço esperado: "+streetExpected
+								+ "  O endereço esperado: "+streetExpected
 								+ "; O endereço encontrado: "+streetActual, this.driver);
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);	
@@ -149,8 +148,8 @@ public class TestCase01VerificationPoints {
 			Report.log(Status.PASS, "O nome da compania esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O nome da compania não esta correto."
-								+ "\nO nome da compania esperado: "+companyExpected
-								+ "\nO nome da compania encontrado: "+companyActual, this.driver);	
+								+ "  O nome da compania esperado: "+companyExpected
+								+ "; O nome da compania encontrado: "+companyActual, this.driver);	
 		}
 		ElementsTools.unHighlightElement(this.driver, element);	
 	}
@@ -164,65 +163,63 @@ public class TestCase01VerificationPoints {
 			Report.log(Status.PASS, "O nome do cliente esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O nome do cliente não esta correto."
-								+ "; O nome da cliente esperado: "+costumerExpected
+								+ "  O nome da cliente esperado: "+costumerExpected
 								+ "; O nome da cliente encontrado: "+costumerActual, this.driver);	
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);	
 	}
 
 	public void verifyOrderTotalProductsPrice(String orderTotalProductsPrice) {
-		WebElement element = this.appObject.getTotalOrderLabel();	
+		WebElement element = this.appObject.getOrderTotalProductsLabel();	
 		String totalActual = element.getText().replace("$","");
 		ElementsTools.highlightElement(this.driver, element);		
 		if ( totalActual.equalsIgnoreCase(orderTotalProductsPrice)) {
 			Report.log(Status.PASS, "A soma total esta correta.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "A soma total não esta correta."
-								+ "; A soma total esperado: "+orderTotalProductsPrice
+								+ "  A soma total esperado: "+orderTotalProductsPrice
 								+ "; A soma total encontrado: "+totalActual, this.driver);	
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);
 	}
 
 	public void verifyOrderShipping(String orderShipping) {	
-		WebElement element    = this.appObject.getTotalShippinglLabel();
+		WebElement element    = this.appObject.getOrderTotalShippinglLabel();
 		String shippingActual = element.getText().replace("$","");
 		ElementsTools.highlightElement(this.driver, element);		
 		if (shippingActual.equalsIgnoreCase(orderShipping)) {
 			Report.log(Status.PASS, "O frete esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O frete não esta correto."
-								+ "; O frete esperado: "+orderShipping
+								+ "  O frete esperado: "+orderShipping
 								+ "; O frete encontrado: "+shippingActual, this.driver);
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);		
-	}
-	
-	
+	}	
 
 	public void verifyOrderTotalWithoutTax(String orderTotalWithoutTax) {
-		WebElement element = this.appObject.getTotalOrderLabel();	
+		WebElement element = this.appObject.getOrderTotalWithoutTaxLabel();	
 		String orderActual = element.getText().replace("$","");
 		ElementsTools.highlightElement(this.driver, element);		
 		if ( orderActual.equalsIgnoreCase(orderTotalWithoutTax)) {
 			Report.log(Status.PASS, "A soma sem impostos esta correta.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "A soma sem impostos não esta correta."
-								+ "; A soma sem impostos esperada: "+orderTotalWithoutTax
+								+ "  A soma sem impostos esperada: "+orderTotalWithoutTax
 								+ "; A soma sem impostos encontrada: "+orderActual, this.driver);
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);		
 	}
 
 	public void verifyOrderIncommingtTax(String orderIncommingTax) {		
-		WebElement element = this.appObject.getTotalTaxlLabel();
+		WebElement element = this.appObject.getOrderTotalTaxlLabel();
 		String taxActual   = element.getText().replace("$","");
 		ElementsTools.highlightElement(this.driver, element);		
 		if ( taxActual.equalsIgnoreCase(orderIncommingTax)) {
-			Report.log(Status.PASS, "A soma total esta correta.", this.driver);
+			Report.log(Status.PASS, "A taxa esta correta.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "A taxa não esta correta."
-								+ "; A taxa esperada: "+ orderIncommingTax
+								+ "  A taxa esperada: "+ orderIncommingTax
 								+ "; A taxa encontrada: "+taxActual, this.driver);
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);		
@@ -230,14 +227,14 @@ public class TestCase01VerificationPoints {
 
 	public void verifyOrderTotalCost(String orderTotalCost) {
 		
-		WebElement element   = this.appObject.getTotalOrderLabel();	
+		WebElement element   = this.appObject.getOrderTotalOrderLabel();	
 		String totalActual = element.getText().replace("$","");
 		ElementsTools.highlightElement(this.driver, element);		
 		if (totalActual.equalsIgnoreCase(orderTotalCost)) {
 			Report.log(Status.PASS, "A soma total esta correta.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "A soma total não esta correta."
-								+ "; A soma total esperada: "+orderTotalCost
+								+ "  A soma total esperada: "+orderTotalCost
 								+ "; A soma total encontrada: "+totalActual, this.driver);
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);		

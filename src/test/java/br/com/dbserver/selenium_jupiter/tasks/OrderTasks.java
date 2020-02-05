@@ -28,22 +28,26 @@ public class OrderTasks {
 	public String getProductPriceTotalLabel() {
 		WebElement element = appObject.getProductTotalPriceLabel();
 		return element.getText();
-	}	
+	}		
 	
-	public String getTotalAllProductsLabel() {
-		WebElement element = appObject.getTotalProductsLabel();
+	public String getOrderTotalAllProductsLabel() {
+		WebElement element = appObject.getOrderTotalProductsLabel();
 		return element.getText();
 	}
 	public String getTotalShippingLabel() {
-		WebElement element = appObject.getTotalShippinglLabel();
+		WebElement element = appObject.getOrderTotalShippinglLabel();
 		return element.getText();
 	}	
-	public String getTotalTaxLabel() {
-		WebElement element = appObject.getTotalTaxlLabel();
+	public String getTotalWithoutTaxLabel() {
+		WebElement element = appObject.getOrderTotalWithoutTaxLabel();
 		return element.getText();
 	}
+	public String getTotalTaxLabel() {
+		WebElement element = appObject.getOrderTotalTaxlLabel();
+		return element.getText();
+	}	
 	public String getTotalOrderLabel() {
-		WebElement element = appObject.getTotalOrderLabel();
+		WebElement element = appObject.getOrderTotalOrderLabel();
 		return element.getText();
 	}	
 	public void clickProceedToCheckoutButton() {

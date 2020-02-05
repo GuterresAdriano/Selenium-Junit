@@ -24,16 +24,7 @@ public class OrderAppObject {
 		WebElement element = td.get(1);
 		return element;
 	}
-
-	public WebElement getProductQtdLabel() {
-		WebElement table = ElementsTools.waitForElement(this.driver,By.id("cart_summary"));	
-		ArrayList<WebElement> rows = new ArrayList<WebElement>();
-		rows.addAll( table.findElements(By.xpath("//*[@id=\"cart_summary\"]/tbody")));			
-		ArrayList<WebElement> elements = (ArrayList<WebElement>) rows.get(0).findElements(By.cssSelector("td"));
-		WebElement element = elements.get(4).findElement(By.cssSelector("input"));
-		return element;
-	}
-
+	
 	public WebElement getProductUnitPriceLabel() {				
 		WebElement table = ElementsTools.waitForElement(this.driver, By.id("cart_summary"));	
 		ArrayList<WebElement> rows = new ArrayList<WebElement>();
@@ -42,6 +33,15 @@ public class OrderAppObject {
 		WebElement element = elements.get(3);
 		return element;
 	}
+
+	public WebElement getProductQtdLabel() {
+		WebElement table = ElementsTools.waitForElement(this.driver,By.id("cart_summary"));	
+		ArrayList<WebElement> rows = new ArrayList<WebElement>();
+		rows.addAll( table.findElements(By.xpath("//*[@id=\"cart_summary\"]/tbody")));			
+		ArrayList<WebElement> elements = (ArrayList<WebElement>) rows.get(0).findElements(By.cssSelector("td"));
+		WebElement element = elements.get(4).findElement(By.cssSelector("input"));
+		return element;
+	}	
 
 	public WebElement getProductTotalPriceLabel() {				
 		WebElement table = ElementsTools.waitForElement(this.driver, By.id("cart_summary"));	
@@ -52,23 +52,28 @@ public class OrderAppObject {
 		return element;
 	}	
 
-	public WebElement getTotalProductsLabel() {	
+	public WebElement getOrderTotalProductsLabel() {	
 		WebElement element =  ElementsTools.waitForElement(this.driver, By.id("total_product"));
 		return element;
 	}
 
-	public WebElement getTotalShippinglLabel() {			
+	public WebElement getOrderTotalShippinglLabel() {			
 		WebElement element = ElementsTools.waitForElement(this.driver, By.id("total_shipping"));	
 		return element;
 	}
+	
+	public WebElement getOrderTotalWithoutTaxLabel() {			
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("total_price_without_tax"));	
+		return element;
+	}
 
-	public WebElement getTotalTaxlLabel() {			
+	public WebElement getOrderTotalTaxlLabel() {			
 		WebElement element = ElementsTools.waitForElement(this.driver, By.id("total_tax"));	
 		return element;
 	}	
 
-	public WebElement getTotalOrderLabel() {			
-		WebElement element = ElementsTools.waitForElement(this.driver, By.id("total_price_container"));
+	public WebElement getOrderTotalOrderLabel() {			
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("total_price"));
 		return element;
 	}
 

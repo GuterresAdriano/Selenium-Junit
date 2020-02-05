@@ -77,7 +77,7 @@ class ComprarUmItemTestCase {
 
 	@AfterAll 
 	public void tearDown() {			
-		this.driver.quit();
+	//	this.driver.quit();
 		Report.close();
 	}
 
