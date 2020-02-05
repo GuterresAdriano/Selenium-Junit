@@ -21,14 +21,11 @@ public class HomePageTasks {
 	public void selectItemMenu() {
 		WebElement element = this.appObject.getTitlesMenu();
 		element.click();
-	}
-	
-	
+	}	
 	public void chooseFirstItemBlock() {
 		WebElement element = this.appObject.getFirstItemBlock();
 		element.click();
-	}
-	
+	}	
 	public void clickFirstItemBlock() {
 		WebElement element = this.appObject.getFirstItemBlock();
 		element.click();

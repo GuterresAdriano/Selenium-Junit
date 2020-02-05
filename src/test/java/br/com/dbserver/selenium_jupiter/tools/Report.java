@@ -32,8 +32,7 @@ public class Report {
 		htmlReporter.config().setReportName(description);
 		htmlReporter.config().setTheme(Theme.DARK);
 		htmlReporter.config().setEncoding("UTF-8");
-		htmlReporter.config().setTimeStampFormat("dd-MMM-yyyy HH:mm:ss");
-		
+		htmlReporter.config().setTimeStampFormat("dd-MMM-yyyy HH:mm:ss");		
 
 		extentReport = new ExtentReports();		
 		extentReport.attachReporter(htmlReporter);		
@@ -44,14 +43,12 @@ public class Report {
 		extentReport.setSystemInfo("Java Version: "   , System.getProperty("java.version"));		
 		try {extentReport.setSystemInfo("IP Address: ", InetAddress.getLocalHost().getHostAddress());} catch (Exception e) {System.err.println(e +"  "+ e.getMessage());}
 	}
-
 	public static void startTest(String testDescription) {
 		if(extentReport == null) {
 			create("DBServer Testes Automatizados de Interface", testDescription);
 		}
 		extentTest = extentReport.createTest(testDescription);
 	}	
-
 	public static void log(Status logStatus, String message, WebDriver driver) {		
 		try {
 			if(extentTest == null) {
@@ -63,14 +60,12 @@ public class Report {
 			extentTest.log(logStatus, message + " (Screenshot fail)");
 		}
 	}	
-
 	public static void log(Status logStatus, String message) {		
 		if(extentTest == null) {
 			startTest("DBServer Testes Automatizados de Interface");
 		}
 		extentTest.log(logStatus, message);
 	}
-
 	public static void close() {
 		if(extentReport != null) {
 			extentReport.flush();

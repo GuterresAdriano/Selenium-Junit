@@ -11,12 +11,9 @@ public class PaymentTasks {
 	public PaymentTasks(WebDriver driver) {
 		super();
 		this.appObject = new PaymentAppObject(driver);		
-	}
-	
+	}	
 	public void clickBankWireButton() {
 		WebElement element = this.appObject.getBankWireButton();
 		element.click();
 	}	
-	
-
 }

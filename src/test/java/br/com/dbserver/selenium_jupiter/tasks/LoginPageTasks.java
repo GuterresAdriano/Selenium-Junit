@@ -12,13 +12,11 @@ public class LoginPageTasks {
 	public LoginPageTasks(WebDriver driver) {
 		super();
 		this.appObject = new LoginPageAppObject(driver);
-	}
-	
+	}	
 	public void fillEmailAddressTextfield(String email) {
 		WebElement element = this.appObject.getEmailAddressTextfield();
 		element.sendKeys(email);		
-	}
-	
+	}	
 	public void clickCreateAccountButton() {		
 		WebElement element = this.appObject.getCreateAccountButton();
 		element.click();		

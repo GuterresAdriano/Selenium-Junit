@@ -22,7 +22,6 @@ public class TestCase01VerificationPoints {
 		this.appObject   	  = new OrderAppObject(this.driver);
 		this.addressAppObject = new AddressAppObject(this.driver);
 	}
-
 	public void verifyProductQtd(String qtd) {   		
 		WebElement element = this.appObject.getProductQtdLabel();
 		String qtdActual = element.getAttribute("value");
@@ -36,7 +35,6 @@ public class TestCase01VerificationPoints {
 		}		
 		ElementsTools.unHighlightElement(this.driver, element);
 	}
-
 	public void verifyProductUnitPrice(String productUnitPrice) {    	
 		WebElement element = this.appObject.getProductUnitPriceLabel(); 
 		String priceActual = element.getText();
@@ -50,7 +48,6 @@ public class TestCase01VerificationPoints {
 		}
 		ElementsTools.unHighlightElement(this.driver, element);
 	}
-
 	public void verifyProductName(String productName) {    	
 		WebElement element = this.appObject.getProductNameLabel();  
 		String nameActual = element.getText();
@@ -64,7 +61,6 @@ public class TestCase01VerificationPoints {
 		}
 		ElementsTools.unHighlightElement(this.driver, element);
 	}
-
 	public void verifyProductTotalPrice(String productTotalPrice) {    	
 		WebElement element = this.appObject.getProductTotalPriceLabel();
 		String priceTotalActual = element.getText().replace("$","");
@@ -78,7 +74,6 @@ public class TestCase01VerificationPoints {
 		}
 		ElementsTools.unHighlightElement(this.driver, element);
 	} 
-
 	public void verifyAddressMobile(CostumerFake customer) {
 		WebElement element = this.addressAppObject.getMobileLabel();	
 		String mobileActual   = element.getText();
@@ -93,7 +88,6 @@ public class TestCase01VerificationPoints {
 		}	
 		ElementsTools.unHighlightElement(driver, element);
 	}
-
 	public void verifyAddressCountry(CostumerFake customer) {		
 		WebElement element =  this.addressAppObject.getCountryLabel();
 		String countryActual   = element.getText();
@@ -108,7 +102,6 @@ public class TestCase01VerificationPoints {
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);
 	}	
-
 	public void verifyAddressCityStatePostcode(CostumerFake customer) {		
 		WebElement element   = this.addressAppObject.getCityStatePostCodeLabel();	
 		String addressActual = element.getText();
@@ -123,7 +116,6 @@ public class TestCase01VerificationPoints {
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);		
 	}
-
 	public void verifyAddressStreet(CostumerFake customer) {
 		WebElement element    = this.addressAppObject.getAddressLabel();
 		String streetActual   = element.getText();
@@ -138,7 +130,6 @@ public class TestCase01VerificationPoints {
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);	
 	}	
-
 	public void verifyAddressCompany(CostumerFake customer) {
 		WebElement element = this.addressAppObject.getCompanyLabel();
 		String companyActual   = element.getText();
@@ -153,7 +144,6 @@ public class TestCase01VerificationPoints {
 		}
 		ElementsTools.unHighlightElement(this.driver, element);	
 	}
-
 	public void verifyCostumerName(CostumerFake costumerFake) {
 		WebElement element = this.addressAppObject.getAddressNameLabel();
 		String costumerActual   = element.getText();
@@ -168,7 +158,6 @@ public class TestCase01VerificationPoints {
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);	
 	}
-
 	public void verifyOrderTotalProductsPrice(String orderTotalProductsPrice) {
 		WebElement element = this.appObject.getOrderTotalProductsLabel();	
 		String totalActual = element.getText().replace("$","");
@@ -182,7 +171,6 @@ public class TestCase01VerificationPoints {
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);
 	}
-
 	public void verifyOrderShipping(String orderShipping) {	
 		WebElement element    = this.appObject.getOrderTotalShippinglLabel();
 		String shippingActual = element.getText().replace("$","");
@@ -196,7 +184,6 @@ public class TestCase01VerificationPoints {
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);		
 	}	
-
 	public void verifyOrderTotalWithoutTax(String orderTotalWithoutTax) {
 		WebElement element = this.appObject.getOrderTotalWithoutTaxLabel();	
 		String orderActual = element.getText().replace("$","");
@@ -210,7 +197,6 @@ public class TestCase01VerificationPoints {
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);		
 	}
-
 	public void verifyOrderIncommingtTax(String orderIncommingTax) {		
 		WebElement element = this.appObject.getOrderTotalTaxlLabel();
 		String taxActual   = element.getText().replace("$","");
@@ -224,7 +210,6 @@ public class TestCase01VerificationPoints {
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);		
 	}
-
 	public void verifyOrderTotalCost(String orderTotalCost) {
 		
 		WebElement element   = this.appObject.getOrderTotalOrderLabel();	
@@ -239,5 +224,4 @@ public class TestCase01VerificationPoints {
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);		
 	}
-
 }

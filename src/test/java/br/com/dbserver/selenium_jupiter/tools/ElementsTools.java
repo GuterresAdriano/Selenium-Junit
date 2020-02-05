@@ -12,16 +12,15 @@ public class ElementsTools {
 	public static WebElement waitForElement(WebDriver driver, By locator) {
 		WebDriverWait wait = new WebDriverWait(driver, 30); 
 		return wait.until(ExpectedConditions.elementToBeClickable(locator));		
-	}	
-	
+	}		
 	public static void highlightElement(WebDriver driver, WebElement element){		
-		((JavascriptExecutor) driver).executeScript("scroll(0, 500);", element);
-		((JavascriptExecutor)driver).executeScript("arguments[0].style.border='2px solid red'", element);
-	}
-	
+		jsExecutor(driver).executeScript("scroll(0, 500);", element);
+		jsExecutor(driver).executeScript("arguments[0].style.border='2px solid red'", element);
+	}	
 	public static void unHighlightElement(WebDriver driver, WebElement element){ 
-		((JavascriptExecutor)driver).executeScript("arguments[0].style.border=''", element);	
+		jsExecutor(driver).executeScript("arguments[0].style.border=''", element);	
+	}	
+	public static JavascriptExecutor jsExecutor(WebDriver driver) {
+		return ((JavascriptExecutor)driver);
 	}
-	
-
 }

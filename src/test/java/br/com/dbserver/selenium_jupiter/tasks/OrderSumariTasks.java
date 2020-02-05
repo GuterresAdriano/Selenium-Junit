@@ -12,11 +12,9 @@ public class OrderSumariTasks {
 	public OrderSumariTasks(WebDriver driver) {
 		super();
 		this.appObject = new OrderSumariAppObject(driver);
-	}
-	
+	}	
 	public void clickIconfirmmButton() {
 		WebElement element = this.appObject.getIconfirmButton();
 		element.click();
 	}
-
 }

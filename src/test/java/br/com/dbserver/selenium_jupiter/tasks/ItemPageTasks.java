@@ -11,8 +11,7 @@ public class ItemPageTasks {
 	public ItemPageTasks(WebDriver driver) {
 		super();
 		this.appObject = new  ItemPageAppObject(driver);
-	}	
-	
+	}		
 	public String getProductPriceLabel() {
 		WebElement element = this.appObject.getProductPriceLabel();
 		return element.getText();	
@@ -24,8 +23,7 @@ public class ItemPageTasks {
 	public String getProductQtdLabel() {
 		WebElement element = this.appObject.getProductQtdLabel();
 		return element.getText();
-	}
-	
+	}	
 	public void clickAddCartButton() {
 		WebElement element = this.appObject.getAddCartButton();
 		element.click();	

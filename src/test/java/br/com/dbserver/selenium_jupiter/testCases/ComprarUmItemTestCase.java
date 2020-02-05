@@ -42,9 +42,8 @@ class ComprarUmItemTestCase {
 	private TestCase01VerificationPoints verifications;
 	private CostumerFake 				 customerFake;
 
-
 	private final static String PRODUCT_NAME              = "Printed Dress";
-	private final static String PRODUCT_UNIT_PRICE        = "26.00";
+	private final static String PRODUCT_UNIT_PRICE        = "26.0000";
 	private final static String PRODUCT_QTD 		      = "1";
 	private final static String PRODUCT_TOTAL_PRICE       = "26.00";
 	
@@ -77,7 +76,7 @@ class ComprarUmItemTestCase {
 
 	@AfterAll 
 	public void tearDown() {			
-	//	this.driver.quit();
+		this.driver.quit();
 		Report.close();
 	}
 
@@ -85,6 +84,7 @@ class ComprarUmItemTestCase {
 	public void testMain() {	
 
 		try {
+			Report.log(Status.INFO, "O teste iniciou!");
 
 			this.homePageTasks.selectItemMenu();		
 			this.homePageTasks.chooseFirstItemBlock();		
@@ -105,8 +105,10 @@ class ComprarUmItemTestCase {
 			this.verifications.verifyOrderTotalCost         (ORDER_TOTAL_COST);	
 
 			this.orderTasks.clickProceedToCheckoutButton();
+			
 			this.loginPageTasks.fillEmailAddressTextfield(this.customerFake.getEmail());		
 			this.loginPageTasks.clickCreateAccountButton();
+			
 			this.accountTasks.markMisterRadioButton();		
 			this.accountTasks.fillFirstNameTextfield(this.customerFake.getName());		
 			this.accountTasks.fillLastNameTextfield(this.customerFake.getLastName());		
@@ -132,12 +134,16 @@ class ComprarUmItemTestCase {
 			this.verifications.verifyAddressMobile(customerFake);	
 
 			this.addressTasks.clickProceedCheckoutButton();		
+			
 			this.shippingTasks.markIGreeCheckbox();
 			this.shippingTasks.clickProceedCheckout();		
+			
 			this.paymentTasks.clickBankWireButton();
 
-			this.orderSumariTasks.clickIconfirmmButton();
+			this.orderSumariTasks.clickIconfirmmButton();			
 
+			Report.log(Status.INFO, "O teste finalizou!");
+			
 		}catch (Exception e) {
 			Report.log(Status.FATAL, "O teste falhou: "+e);
 			fail(e);

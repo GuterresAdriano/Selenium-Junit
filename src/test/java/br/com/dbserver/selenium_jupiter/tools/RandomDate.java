@@ -13,7 +13,5 @@ public class RandomDate {
         int maxDay = (int) maxDate.toEpochDay();
         long randomDay = minDay + random.nextInt(maxDay - minDay);
         return LocalDate.ofEpochDay(randomDay).toString().split("-");
-    }
-
-   
+    }   
 }
