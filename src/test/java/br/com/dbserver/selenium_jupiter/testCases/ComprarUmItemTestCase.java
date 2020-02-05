@@ -43,7 +43,7 @@ class ComprarUmItemTestCase {
 	private CostumerFake 				 customerFake;
 
 	private final static String PRODUCT_NAME              = "Printed Dress";
-	private final static String PRODUCT_UNIT_PRICE        = "26.0000";
+	private final static String PRODUCT_UNIT_PRICE        = "26.00";
 	private final static String PRODUCT_QTD 		      = "1";
 	private final static String PRODUCT_TOTAL_PRICE       = "26.00";
 	
