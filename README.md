@@ -20,24 +20,24 @@ AppObject
 selenium-jupiter                                          
 ├───reports                                          
 ├───src                                                   
-    ├───main                                              
-    │   └───java                                          
-    │       └───br                                        
-    │           └───com                                   
-    │               └───dbserver                          
-    │                   └───selenium_jupiter              
-    └───test                                              
-        └───java                                          
-            └───br                                        
-                └───com                                   
-                    └───dbserver                          
-                        └───selenium_jupiter              
-                            ├───appObjects                
-                            ├───tasks                     
-                            ├───testCases                 
-                            ├───testSuite                 
-                            ├───tools                     
-                            └───verificationPoints        
+....├───main                                              
+....│...└───java                                          
+....│.......└───br                                        
+....│............└───com                                   
+....│................└───dbserver                          
+....│....................└───selenium_jupiter              
+....└───test                                              
+........└───java                                          
+............└───br                                        
+................└───com                                   
+....................└───dbserver                          
+........................└───selenium_jupiter              
+............................├───appObjects                
+............................├───tasks                     
+............................├───testCases                 
+............................├───testSuite                 
+............................├───tools                     
+............................└───verificationPoints        
 
 
 
