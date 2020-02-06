@@ -28,7 +28,7 @@ import br.com.dbserver.selenium_jupiter.verificationPoints.TestCase01Verificatio
 @TestInstance(Lifecycle.PER_CLASS)
 class ComprarUmItemTestCase {	
 
-	private WebDriver driver ;	
+	private WebDriver driver;	
 
 	private HomePageTasks    			 homePageTasks;
 	private LoginPageTasks   			 loginPageTasks;
@@ -76,7 +76,7 @@ class ComprarUmItemTestCase {
 
 	@AfterAll 
 	public void tearDown() {			
-		this.driver.quit();
+		DriverConfig.closeDriver(this.driver);
 		Report.close();
 	}
 
@@ -86,57 +86,53 @@ class ComprarUmItemTestCase {
 		try {
 			Report.log(Status.INFO, "O teste iniciou!");
 
-			this.homePageTasks.selectItemMenu();		
-			this.homePageTasks.chooseFirstItemBlock();		
-			this.homePageTasks.clickFirstItemBlock();	
+			this.homePageTasks.selectFirstItemDresses();	
 
-			this.itemPageTasks.clickAddCartButton();		
-			this.itemPageTasks.clickProceedCheckoutButton();
+			this.itemPageTasks.addFirstItemDressesCart();
 			
-			this.verifications.verifyProductName      (PRODUCT_NAME);				
-			this.verifications.verifyProductUnitPrice (PRODUCT_UNIT_PRICE);			
-			this.verifications.verifyProductQtd	      (PRODUCT_QTD);
-			this.verifications.verifyProductTotalPrice(PRODUCT_TOTAL_PRICE);
+			this.verifications.verifyItemDetailsCart(PRODUCT_NAME,
+													 PRODUCT_UNIT_PRICE,
+													 PRODUCT_QTD, 
+													 PRODUCT_TOTAL_PRICE);
 			
-			this.verifications.verifyOrderTotalProductsPrice(ORDER_TOTAL_PRODUCT_PRICE);	
-			this.verifications.verifyOrderShipping          (ORDER_SHIPPING);	
-			this.verifications.verifyOrderTotalWithoutTax   (ORDER_TOTAL_WITHOUT_TAX);	
-			this.verifications.verifyOrderIncommingtTax     (ORDER_INCOMMING_TAX);	
-			this.verifications.verifyOrderTotalCost         (ORDER_TOTAL_COST);	
+			this.verifications.verifyOrderDetailsCart(ORDER_TOTAL_PRODUCT_PRICE,
+													  ORDER_SHIPPING, 
+													  ORDER_TOTAL_WITHOUT_TAX, 
+													  ORDER_INCOMMING_TAX,
+													  ORDER_TOTAL_COST);
 
 			this.orderTasks.clickProceedToCheckoutButton();
 			
-			this.loginPageTasks.fillEmailAddressTextfield(this.customerFake.getEmail());		
-			this.loginPageTasks.clickCreateAccountButton();
+			this.loginPageTasks.CreateAccont(this.customerFake.getEmail());
 			
-			this.accountTasks.markMisterRadioButton();		
-			this.accountTasks.fillFirstNameTextfield(this.customerFake.getName());		
-			this.accountTasks.fillLastNameTextfield(this.customerFake.getLastName());		
-			this.accountTasks.fillLastEmailTextfield(this.customerFake.getEmail());		
-			this.accountTasks.fillPasswordTextfield(this.customerFake.getPassword());	
-			this.accountTasks.choseDaysBithdayCombobox(this.customerFake.getDayBirthday()+"");		
-			this.accountTasks.choseMonthBithdayCombobox(this.customerFake.getMonthBirthday()+"");		
-			this.accountTasks.choseYearComboboxCombobox(this.customerFake.getYearBirthday()+"");		
-			this.accountTasks.fillCompanyTextfield(this.customerFake.getCompany());		
-			this.accountTasks.fillAddressTextfield(this.customerFake.getStreet());		
-			this.accountTasks.fillCityTextfield(this.customerFake.getCity());				
-			this.accountTasks.choseStateCombobox(this.customerFake.getState());		
-			this.accountTasks.fillPostCodeTextfield(this.customerFake.getPostalCode());		
-			this.accountTasks.choseCountryCombobox(this.customerFake.getCountry());		
-			this.accountTasks.fillMobileTextfield(this.customerFake.getMobile());		
-			this.accountTasks.clickRegisterButton();		
-
-			this.verifications.verifyCostumerName(customerFake);	
-			this.verifications.verifyAddressCompany(customerFake);	
-			this.verifications.verifyAddressStreet(customerFake);	
-			this.verifications.verifyAddressCityStatePostcode(customerFake);	
-			this.verifications.verifyAddressCountry(customerFake);	
-			this.verifications.verifyAddressMobile(customerFake);	
+			this.accountTasks.fillCostumerForm(this.customerFake.getName(),				
+											   this.customerFake.getLastName(),			
+											   this.customerFake.getEmail(),			
+											   this.customerFake.getPassword(),				
+											   this.customerFake.getDayBirthday()+"",				
+											   this.customerFake.getMonthBirthday()+"",			
+											   this.customerFake.getYearBirthday()+"",				
+											   this.customerFake.getCompany(),		
+											   this.customerFake.getStreet(),					
+											   this.customerFake.getCity(),				
+											   this.customerFake.getState(),				
+											   this.customerFake.getPostalCode(),			
+											   this.customerFake.getCountry(),			
+											   this.customerFake.getMobile());
+			
+			this.verifications.verifyOrderAccountDetails(this.customerFake.getName()+" "+
+														      this.customerFake.getLastName(), 
+														 this.customerFake.getCompany(),
+														 this.customerFake.getStreet(),
+														 this.customerFake.getCity()+", "+
+															  this.customerFake.getState() +" "+
+															  this.customerFake.getPostalCode(),
+														 this.customerFake.getCountry(),
+														 this.customerFake.getMobile());
 
 			this.addressTasks.clickProceedCheckoutButton();		
 			
-			this.shippingTasks.markIGreeCheckbox();
-			this.shippingTasks.clickProceedCheckout();		
+			this.shippingTasks.confirmShipping();
 			
 			this.paymentTasks.clickBankWireButton();
 

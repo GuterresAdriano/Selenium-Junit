@@ -24,12 +24,10 @@ public class ItemPageTasks {
 		WebElement element = this.appObject.getProductQtdLabel();
 		return element.getText();
 	}	
-	public void clickAddCartButton() {
-		WebElement element = this.appObject.getAddCartButton();
-		element.click();	
-	}
-	public void clickProceedCheckoutButton() {
-		WebElement element = this.appObject.getProceedToCheckoutButton();
-		element.click();
+	
+	
+	public void addFirstItemDressesCart() {
+		this.appObject.getAddCartButton().click();
+		this.appObject.getProceedToCheckoutButton().click();		
 	}	
 }

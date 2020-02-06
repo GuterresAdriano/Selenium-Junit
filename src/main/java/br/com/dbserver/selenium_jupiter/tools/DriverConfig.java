@@ -14,7 +14,12 @@ public class DriverConfig {
 		driver.get(url);		
 		return driver;
 	} 
-
+	
+	public static void closeDriver(WebDriver driver) {
+		if(driver != null) {
+			driver.quit();						
+		}		
+	}
 }
 
 

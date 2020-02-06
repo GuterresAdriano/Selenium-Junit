@@ -29,7 +29,7 @@ public class HomePageAppObject {
 	public WebElement getFirstItemBlock() {
 		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/h5"));
 	}		
-	public WebElement getFrame0SubmitButton() {
+	public WebElement getFrameSubmitButton() {
 		return ElementsTools.waitForElement(this.driver, By.tagName("Submit"));	
 	}	
 }

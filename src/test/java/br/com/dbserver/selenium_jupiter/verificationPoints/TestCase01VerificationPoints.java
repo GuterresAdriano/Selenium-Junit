@@ -7,7 +7,6 @@ import com.aventstack.extentreports.Status;
 
 import br.com.dbserver.selenium_jupiter.appObjects.AddressAppObject;
 import br.com.dbserver.selenium_jupiter.appObjects.OrderAppObject;
-import br.com.dbserver.selenium_jupiter.tools.CostumerFake;
 import br.com.dbserver.selenium_jupiter.tools.ElementsTools;
 import br.com.dbserver.selenium_jupiter.tools.Report;
 
@@ -17,11 +16,52 @@ public class TestCase01VerificationPoints {
 	private AddressAppObject addressAppObject;
 
 	public TestCase01VerificationPoints(WebDriver driver) {
-		super();
 		this.driver     	  = driver;		
 		this.appObject   	  = new OrderAppObject(this.driver);
 		this.addressAppObject = new AddressAppObject(this.driver);
 	}
+	
+	public void verifyItemDetailsCart(String productName, 
+									  String productUnitPrice, 
+									  String productQtd ,
+									  String productTotalPrice) {
+	
+		verifyProductName      (productName);				
+		verifyProductUnitPrice (productUnitPrice);			
+		verifyProductQtd	   (productQtd);
+		verifyProductTotalPrice(productTotalPrice);		
+	}
+	
+	public void verifyOrderDetailsCart(	String orderTotalProductPrice,
+										String orderShipping , 
+										String orderTotalWithoutTax, 
+										String orderIncommingTax,
+										String orderTotalCost) {
+		
+		verifyOrderTotalProductsPrice(orderTotalProductPrice);	
+		verifyOrderShipping          (orderShipping);	
+		verifyOrderTotalWithoutTax   (orderTotalWithoutTax);	
+		verifyOrderIncommingtTax     (orderIncommingTax);	
+		verifyOrderTotalCost         (orderTotalCost);	
+		
+	}
+	
+	public void verifyOrderAccountDetails(String name, 
+										  String company, 
+										  String street,
+										  String cityStatePostcode, 
+										  String country, 
+										  String mobile) {
+		verifyCostumerName(name);	
+		verifyAddressCompany(company);	
+		verifyAddressStreet(street);	
+		verifyAddressCityStatePostcode(cityStatePostcode);	
+		verifyAddressCountry(country);	
+		verifyAddressMobile(mobile);	
+		
+	}
+	
+	
 	public void verifyProductQtd(String qtd) {   		
 		WebElement element = this.appObject.getProductQtdLabel();
 		String qtdActual = element.getAttribute("value");
@@ -74,86 +114,80 @@ public class TestCase01VerificationPoints {
 		}
 		ElementsTools.unHighlightElement(this.driver, element);
 	} 
-	public void verifyAddressMobile(CostumerFake customer) {
+	public void verifyAddressMobile(String mobile) {
 		WebElement element = this.addressAppObject.getMobileLabel();	
-		String mobileActual   = element.getText();
-		String mobileExpected = customer.getMobile();		
+		String mobileActual   = element.getText();	
 		ElementsTools.highlightElement(driver, element);
-		if( mobileExpected.equalsIgnoreCase(mobileActual)) {
+		if( mobile.equalsIgnoreCase(mobileActual)) {
 			Report.log(Status.PASS, "O telefone esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O telefone não esta correto "
-								+ "  O telefone esperado: "+mobileExpected
+								+ "  O telefone esperado: "+mobile
 								+ "; O telefone encontrado: "+mobileActual, this.driver);
 		}	
 		ElementsTools.unHighlightElement(driver, element);
 	}
-	public void verifyAddressCountry(CostumerFake customer) {		
+	public void verifyAddressCountry(String country) {		
 		WebElement element =  this.addressAppObject.getCountryLabel();
 		String countryActual   = element.getText();
-		String countryExpected = customer.getCountry();
 		ElementsTools.highlightElement(this.driver, element);		
-		if(	countryExpected.equalsIgnoreCase(countryActual)) {
+		if(	country.equalsIgnoreCase(countryActual)) {
 			Report.log(Status.PASS, "O país esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O país não esta correto."
-								+ "  O país esperado: "+countryExpected
+								+ "  O país esperado: "+country
 								+ "; O país encontrado: "+countryActual, this.driver);
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);
 	}	
-	public void verifyAddressCityStatePostcode(CostumerFake customer) {		
+	public void verifyAddressCityStatePostcode(String cityStatePostcode) {		
 		WebElement element   = this.addressAppObject.getCityStatePostCodeLabel();	
 		String addressActual = element.getText();
-		String addressExpected   = customer.getCity()+", "+customer.getState() +" "+customer.getPostalCode();
 		ElementsTools.highlightElement(this.driver, element);		
-		if (addressExpected.equalsIgnoreCase(addressActual)) {
+		if (cityStatePostcode.equalsIgnoreCase(addressActual)) {
 			Report.log(Status.PASS, "A localidade esta correta.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "A localidade não esta correta."
-								+ "  A localidade esperada: "+addressExpected
+								+ "  A localidade esperada: "+cityStatePostcode
 								+ "; A localidade encontrada: "+addressActual, this.driver);
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);		
 	}
-	public void verifyAddressStreet(CostumerFake customer) {
+	public void verifyAddressStreet(String street) {
 		WebElement element    = this.addressAppObject.getAddressLabel();
 		String streetActual   = element.getText();
-		String streetExpected = customer.getStreet();
 		ElementsTools.highlightElement(this.driver, element);	
-		if (streetExpected.equalsIgnoreCase(streetActual)) {
+		if (street.equalsIgnoreCase(streetActual)) {
 			Report.log(Status.PASS, "O endereço esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O endereço não esta correto."
-								+ "  O endereço esperado: "+streetExpected
+								+ "  O endereço esperado: "+street
 								+ "; O endereço encontrado: "+streetActual, this.driver);
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);	
 	}	
-	public void verifyAddressCompany(CostumerFake customer) {
+	public void verifyAddressCompany(String customer) {
 		WebElement element = this.addressAppObject.getCompanyLabel();
 		String companyActual   = element.getText();
-		String companyExpected = customer.getCompany();
 		ElementsTools.highlightElement(this.driver, element);	
-		if (companyExpected.equalsIgnoreCase(companyActual)) {
+		if (customer.equalsIgnoreCase(companyActual)) {
 			Report.log(Status.PASS, "O nome da compania esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O nome da compania não esta correto."
-								+ "  O nome da compania esperado: "+companyExpected
+								+ "  O nome da compania esperado: "+customer
 								+ "; O nome da compania encontrado: "+companyActual, this.driver);	
 		}
 		ElementsTools.unHighlightElement(this.driver, element);	
 	}
-	public void verifyCostumerName(CostumerFake costumerFake) {
+	public void verifyCostumerName(String name) {
 		WebElement element = this.addressAppObject.getAddressNameLabel();
 		String costumerActual   = element.getText();
-		String costumerExpected = costumerFake.getName()+" "+costumerFake.getLastName();
 		ElementsTools.highlightElement(this.driver, element);	
-		if (costumerExpected.equalsIgnoreCase(costumerActual)) {
+		if (name.equalsIgnoreCase(costumerActual)) {
 			Report.log(Status.PASS, "O nome do cliente esta correto.", this.driver);
 		}else {
 			Report.log(Status.FAIL, "O nome do cliente não esta correto."
-								+ "  O nome da cliente esperado: "+costumerExpected
+								+ "  O nome da cliente esperado: "+name
 								+ "; O nome da cliente encontrado: "+costumerActual, this.driver);	
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);	
@@ -224,4 +258,6 @@ public class TestCase01VerificationPoints {
 		}	
 		ElementsTools.unHighlightElement(this.driver, element);		
 	}
+
+	
 }
