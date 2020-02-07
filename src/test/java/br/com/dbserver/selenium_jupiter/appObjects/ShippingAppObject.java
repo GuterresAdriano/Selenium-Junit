@@ -11,16 +11,15 @@ public class ShippingAppObject {
 	private WebDriver driver;
 	
 	public ShippingAppObject(WebDriver driver){
-		super();
 		this.driver = driver;		
 	}		
 	public WebElement getIGreeCheckbox() {
-		return this.driver.findElement(By.id("cgv"));		
+		return ElementsTools.waitForElement(this.driver, By.id("cgv"));	
 	}	
 	public WebElement getCarrierRadioButton() {
-		return this.driver.findElement(By.id("uniform-delivery_option_263513_0"));
+		return ElementsTools.waitForElement(this.driver, By.cssSelector("input.delivery_option_radio"));
 	}	
 	public WebElement getProceedCheckoutButton() {
-		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"form\"]/p/button"));
+		return ElementsTools.waitForElement(this.driver, By.cssSelector("button[name='processCarrier'] > span"));
 	}
 }

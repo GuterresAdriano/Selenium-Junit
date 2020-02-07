@@ -9,7 +9,6 @@ public class OrderSumariTasks {
 	private OrderSumariAppObject appObject ;
 	
 	public OrderSumariTasks(WebDriver driver) {
-		super();
 		this.appObject = new OrderSumariAppObject(driver);
 	}	
 	public void clickIconfirmmButton() {

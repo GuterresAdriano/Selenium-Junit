@@ -13,9 +13,6 @@ public class PaymentAppObject {
 		this.driver = driver;
 	}	
 	public WebElement getBankWireButton() {
-		return ElementsTools.waitForElement(this.driver, By.partialLinkText("Pay by bank wire"));	
+		return ElementsTools.waitForElement(this.driver, By.cssSelector(".bankwire"));	
 	}	
-	public WebElement getTotalPriceLabel() {
-		return ElementsTools.waitForElement(this.driver, By.id("total_price_container"));		
-	}
 }
