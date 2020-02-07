@@ -10,8 +10,7 @@ public class ShippingTasks {
 	public ShippingTasks(WebDriver driver) {
 		this.appObject = new ShippingAppObject(driver);
 	}	
-	public void confirmShipping() {
-		this.appObject.getCarrierRadioButton().click();
+	public void confirmShipping() {		
 		this.appObject.getIGreeCheckbox().click();
 		this.appObject.getProceedCheckoutButton().click();		
 	}

@@ -16,10 +16,7 @@ public class MyAccountPageAppObject {
 	}	
 	public WebElement getTitleMisterRadioButton() {		
 		return ElementsTools.waitForElement(this.driver, By.id("id_gender1"));
-	}	
-	public WebElement getTitleMissRadioButton() {
-		return ElementsTools.waitForElement(this.driver, By.id("id_gender2"));	
-	}	
+	}			
 	public WebElement getFirstNameTexfield() {
 		return ElementsTools.waitForElement(this.driver, By.id("customer_firstname"));
 	}	

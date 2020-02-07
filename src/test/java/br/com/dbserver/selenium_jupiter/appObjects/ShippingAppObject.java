@@ -14,11 +14,8 @@ public class ShippingAppObject {
 		this.driver = driver;		
 	}		
 	public WebElement getIGreeCheckbox() {
-		return ElementsTools.waitForElement(this.driver, By.id("cgv"));	
-	}	
-	public WebElement getCarrierRadioButton() {
-		return ElementsTools.waitForElement(this.driver, By.cssSelector("input.delivery_option_radio"));
-	}	
+		return ElementsTools.waitForElement(this.driver, By.cssSelector("#uniform-cgv"));	
+	}		
 	public WebElement getProceedCheckoutButton() {
 		return ElementsTools.waitForElement(this.driver, By.cssSelector("button[name='processCarrier'] > span"));
 	}

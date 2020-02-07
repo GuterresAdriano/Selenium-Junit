@@ -80,10 +80,6 @@ public class CostumerFake {
 	public String getMobile() {
 		return mobile;
 	}
-	public String getAliasAddress() {
-		return aliasAddress;
-	}
-
 	public void generateName() {		
 		Random random = new Random();
 		String names[] = {"Avícola",      

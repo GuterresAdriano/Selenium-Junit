@@ -11,7 +11,6 @@ public class LoginPageAppObject {
 	private WebDriver driver;
 
 	public LoginPageAppObject(WebDriver driver) {
-		super();
 		this.driver = driver;
 	}	
 	public WebElement getEmailAddressTextfield() {		

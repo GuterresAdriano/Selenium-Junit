@@ -10,7 +10,6 @@ public class OrderSumariAppObject {
 	private WebDriver driver;
 	
 	public OrderSumariAppObject(WebDriver driver) {
-		super();
 		this.driver = driver;
 	}	
 	public WebElement getIconfirmButton() {

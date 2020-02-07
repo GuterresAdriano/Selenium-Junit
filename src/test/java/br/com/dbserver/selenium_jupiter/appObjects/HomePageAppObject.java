@@ -11,21 +11,12 @@ public class HomePageAppObject {
 	private WebDriver driver;
 	
 	public HomePageAppObject(WebDriver driver) {
-		setDriver(driver);
-	}
-	public WebDriver getDriver() {
-		return driver;
-	}
-	public void setDriver(WebDriver driver) {
 		this.driver = driver;
-	}		
+	}
 	public WebElement getTitlesMenuDresses() {		
 		return ElementsTools.waitForElement(this.driver, By.cssSelector("ul.sf-menu > li > [title='Dresses']"));
 	}	
 	public WebElement getFirstItemBlock() {		
-		return ElementsTools.waitForElement(this.driver,  By.cssSelector(".first-item-of-tablet-line.first-in-line .product-name")); 
-	}		
-	public WebElement getFrameSubmitButton() {
-		return ElementsTools.waitForElement(this.driver, By.cssSelector("button[name='Submit'] > span"));	
-	}	
+		return ElementsTools.waitForElement(this.driver, By.cssSelector(".first-item-of-tablet-line.first-in-line .product-name")); 
+	}			
 }
