@@ -14,6 +14,6 @@ public class OrderSumariAppObject {
 		this.driver = driver;
 	}	
 	public WebElement getIconfirmButton() {
-		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"cart_navigation\"]/button"));
+		return ElementsTools.waitForElement(this.driver, By.cssSelector("button.button-medium > span"));
 	}
 }

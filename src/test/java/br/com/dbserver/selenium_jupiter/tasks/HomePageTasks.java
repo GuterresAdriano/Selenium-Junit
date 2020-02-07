@@ -12,9 +12,7 @@ public class HomePageTasks {
 		this.appObject = new HomePageAppObject(driver);		
 	}	
 	public void selectFirstItemDresses() {		
-		this.appObject.getSignInButton()  .click();		
-		this.appObject.getTitlesMenu()    .click();		
-		this.appObject.getFirstItemBlock().click();		
-		this.appObject.getFirstItemBlock().click();		
+		this.appObject.getTitlesMenuDresses().click();		
+		this.appObject.getFirstItemBlock().click();	
 	}	
 }

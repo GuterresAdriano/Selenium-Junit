@@ -11,7 +11,6 @@ public class HomePageAppObject {
 	private WebDriver driver;
 	
 	public HomePageAppObject(WebDriver driver) {
-		super();
 		setDriver(driver);
 	}
 	public WebDriver getDriver() {
@@ -19,17 +18,14 @@ public class HomePageAppObject {
 	}
 	public void setDriver(WebDriver driver) {
 		this.driver = driver;
+	}		
+	public WebElement getTitlesMenuDresses() {		
+		return ElementsTools.waitForElement(this.driver, By.cssSelector("ul.sf-menu > li > [title='Dresses']"));
 	}	
-	public WebElement getSignInButton() {		
-		return ElementsTools.waitForElement(this.driver, By.className("login"));
-	}	
-	public WebElement getTitlesMenu() {		
-		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/a"));
-	}	
-	public WebElement getFirstItemBlock() {
-		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/h5"));
+	public WebElement getFirstItemBlock() {		
+		return ElementsTools.waitForElement(this.driver,  By.cssSelector(".first-item-of-tablet-line.first-in-line .product-name")); 
 	}		
 	public WebElement getFrameSubmitButton() {
-		return ElementsTools.waitForElement(this.driver, By.tagName("Submit"));	
+		return ElementsTools.waitForElement(this.driver, By.cssSelector("button[name='Submit'] > span"));	
 	}	
 }

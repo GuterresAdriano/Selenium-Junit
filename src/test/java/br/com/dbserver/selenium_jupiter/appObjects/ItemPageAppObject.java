@@ -11,22 +11,12 @@ public class ItemPageAppObject {
 	private WebDriver driver;	
 
 	public ItemPageAppObject(WebDriver driver) {
-		super();
 		this.driver = driver;
-	}		
-	public WebElement getProductPriceLabel() {
-		return ElementsTools.waitForElement(this.driver, By.id("our_price_display"));
-	}	
-	public WebElement getProductNameLabel() {
-		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"center_column\"]/div/div/div[3]/h1"));
-	}
-	public WebElement getProductQtdLabel() {
-		return ElementsTools.waitForElement(this.driver, By.id("quantity_wanted"));
-	}	
+	}			
 	public WebElement getAddCartButton() {
-		return ElementsTools.waitForElement(this.driver, By.id("add_to_cart"));
+		return ElementsTools.waitForElement(this.driver, By.cssSelector("button[name='Submit'] > span"));
 	}	
 	public WebElement getProceedToCheckoutButton() {
-		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a"));
+		return ElementsTools.waitForElement(this.driver, By.cssSelector("a.button-medium > span"));
 	}		
 }

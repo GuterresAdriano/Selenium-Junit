@@ -10,7 +10,6 @@ public class AddressAppObject {
 	private WebDriver driver;
 	
 	public AddressAppObject(WebDriver driver) {
-		super();
 		this.driver = driver;			
 	}	
 	public WebElement getAddressNameLabel() {

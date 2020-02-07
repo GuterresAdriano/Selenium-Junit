@@ -12,7 +12,6 @@ public class MyAccountPageAppObject {
 	private WebDriver driver;
 	
 	public MyAccountPageAppObject(WebDriver driver) {
-		super();
 		this.driver = driver;
 	}	
 	public WebElement getTitleMisterRadioButton() {		
